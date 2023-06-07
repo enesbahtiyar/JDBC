@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class Execute01
 {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        //1.step: register driver
+        //1.step: register driver //optional
         Class.forName("org.postgresql.Driver");
 
         //2.step: create a connection to get database

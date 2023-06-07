@@ -49,9 +49,16 @@ public class ExecuteQuery01
             System.out.println(resultSet2.getInt("id") + "---" + resultSet2.getString("name") + "---" + resultSet2.getString("prog_lang") + "---" + resultSet2.getDouble("salary"));
         }
 
+        //TASK - 4 : Display students' name and grade whose grades are higher than average passing grade of departments.
+        System.out.println("----------Task4---------");
+        String query3 = "SELECT name, grade FROM students WHERE grade > (SELECT AVG(pass_grade) FROM departments)";
+        ResultSet resultSet3 = statement.executeQuery(query3);
+        while (resultSet3.next())
+        {
+            System.out.println(resultSet3.getString("name") + "---" + resultSet3.getInt("grade"));
+        }
+
         statement.close();
         connection.close();
-
-        //TASK - 4 : Display students' name and grade whose grades are higher than average passing grade of departments.
     }
 }
